@@ -21,6 +21,7 @@ export function Hero() {
             borderRadius="99px"
             borderColor="white"
             colorPalette="white"
+            _hover={{ transform: "scale(1.05)" }}
           >
             Wellness
           </Button>
@@ -28,11 +29,17 @@ export function Hero() {
             borderRadius="99px"
             mr={{ md: "0.5", lg: "0.5", xl: "3" }}
             borderColor="white"
+            _hover={{ transform: "scale(1.05)" }}
             colorPalette="white"
           >
             Others
           </Button>
-          <Button borderRadius="99px" borderColor="white" colorPalette="white">
+          <Button
+            _hover={{ transform: "scale(1.05)" }}
+            borderRadius="99px"
+            borderColor="white"
+            colorPalette="white"
+          >
             Dining
           </Button>
         </ButtonGroup>
