@@ -26,63 +26,85 @@ const items2 = [
   },
   {
     value: "e",
-    title: "Do you offer honetmoon or romantic packages",
+    title: "Do you offer honeymoon or romantic packages",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus nesciunt repudiandae vel saepe numquam aliquam, facilis porro modi voluptas aut quibusdam officia illum facere nobis architecto debitis corrupti quisquam nisi.",
   },
 ];
 
 export function Accordion2() {
   return (
-    <Box mb="100px" p={3} textAlign="left" bgColor="#fafaf8">
-      <Heading
-        fontFamily="Inter, sans-serif"
-        fontWeight="normal"
-        fontSize="3xl"
-        mb={1}
-        lineHeight={1.2}
-        color="black"
-      >
-        Got Questions? We&apos;ve got Answers!
-      </Heading>
-      <Accordion.Root
-        mt="30px"
-        variant="plain"
-        size="lg"
-        multiple
-        defaultValue={["b"]}
-      >
-        {items2.map((item, index) => (
-          <Accordion.Item
-            fontSize={{ base: "base", md: "md", lg: "lg" }}
-            key={index}
-            value={item.value}
+    <Box
+      display={{ lg: "flex" }}
+      justifyContent="space-between"
+      mb="100px"
+      p={{ base: "3", xl: "70px" }}
+      textAlign="left"
+      bgColor="#fafaf8"
+    >
+      <Box w={{ lg: "45%", xl: "40%" }}>
+        <Heading
+          fontFamily="Inter, sans-serif"
+          fontWeight="normal"
+          fontSize="3xl"
+          w={{ xl: "78%" }}
+          mb={1}
+          lineHeight={1.2}
+          color="black"
+        >
+          <Span
+            fontFamily="Inter, sans-serif"
+            mb={5}
+            fontWeight="normal"
+            fontSize="sm"
           >
-            <Accordion.ItemTrigger>
-              <Span color="#1A202C" flex="1">
-                {item.title}
-              </Span>
-              <Accordion.ItemIndicator />
-            </Accordion.ItemTrigger>
-            <Accordion.ItemContent>
-              <Accordion.ItemBody
-                color="black"
-                fontSize={{ base: "base", md: "md", lg: "lg" }}
-              >
-                {item.text}
-              </Accordion.ItemBody>
-            </Accordion.ItemContent>
-          </Accordion.Item>
-        ))}
-      </Accordion.Root>
-      <br />
-      <Image
-        borderRadius="14px"
-        src="/images/hot.avif"
-        height="full"
-        width="full"
-        alt="Hydroponics"
-        objectFit="cover"
-      />
+            FAQ
+          </Span>
+          <br />
+          <br />
+          Got Questions? We&apos;ve got Answers!
+        </Heading>
+        <Accordion.Root
+          mt="30px"
+          variant="plain"
+          size="lg"
+          multiple
+          defaultValue={["b"]}
+        >
+          {items2.map((item, index) => (
+            <Accordion.Item
+              fontSize={{ base: "base", md: "md", lg: "lg" }}
+              key={index}
+              value={item.value}
+            >
+              <Accordion.ItemTrigger>
+                <Span color="#1A202C" flex="1">
+                  {item.title}
+                </Span>
+                <Accordion.ItemIndicator />
+              </Accordion.ItemTrigger>
+              <Accordion.ItemContent>
+                <Accordion.ItemBody
+                  color="black"
+                  fontSize={{ base: "base", md: "md", lg: "lg" }}
+                >
+                  {item.text}
+                </Accordion.ItemBody>
+              </Accordion.ItemContent>
+            </Accordion.Item>
+          ))}
+        </Accordion.Root>
+      </Box>
+      <Box mt={{ base: "20px", lg: "none" }} w={{ base: "full", lg: "45%" }}>
+        {" "}
+        <Image
+          borderRadius="14px"
+          src="/images/hot.avif"
+          height="400px"
+          w="full"
+          alt="Hydroponics"
+          objectFit="cover"
+        />
+      </Box>
     </Box>
   );
 }

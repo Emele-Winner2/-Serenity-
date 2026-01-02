@@ -1,4 +1,4 @@
-import { Box, InputGroup, Span } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, InputGroup, Span } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
 import { Input } from "@chakra-ui/react";
 import { LuSearch } from "react-icons/lu";
@@ -6,15 +6,46 @@ export function Hero() {
   return (
     <Box>
       {" "}
-      <Box>
-        <Text mt={2}>
+      <Box mt={2} display="flex" justifyContent="space-between">
+        <Text>
           Let&apos;s make your stay <br />
           <Span color="gray.500">unforgettable!</Span>
         </Text>
+        <ButtonGroup
+          display={{ base: "none", md: "block" }}
+          size="sm"
+          variant="outline"
+        >
+          <Button
+            mr={{ md: "0.5", lg: "0.5", xl: "3" }}
+            borderRadius="99px"
+            borderColor="white"
+            colorPalette="white"
+          >
+            Wellness
+          </Button>
+          <Button
+            borderRadius="99px"
+            mr={{ md: "0.5", lg: "0.5", xl: "3" }}
+            borderColor="white"
+            colorPalette="white"
+          >
+            Others
+          </Button>
+          <Button borderRadius="99px" borderColor="white" colorPalette="white">
+            Dining
+          </Button>
+        </ButtonGroup>
       </Box>
       <br />
-      <Box mt="270px" lineHeight="40px">
+      <Box
+        display={{ md: "block", lg: "flex" }}
+        justifyContent="space-between"
+        mt={{ base: "270px", lg: "350px" }}
+        lineHeight="40px"
+      >
         <Text
+          w={{ base: "100%", lg: "50%", xl: "32%" }}
           fontFamily="Inter, sans-serif"
           color="gray.200"
           fontWeight="normal"
@@ -23,7 +54,10 @@ export function Hero() {
         >
           Not just a hotel, but a place that feels like home
         </Text>
-        <InputGroup endElement={<LuSearch size="20px" />}>
+        <InputGroup
+          w={{ base: "100%", lg: "35%" }}
+          endElement={<LuSearch color="white" size="20px" />}
+        >
           <Input
             css={{ "--focus-color": "white" }}
             type="text"

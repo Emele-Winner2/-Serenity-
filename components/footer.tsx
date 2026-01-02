@@ -41,7 +41,12 @@ export function Footer() {
             mb={5}
             mt={5}
             borderRadius="20px"
-            _hover={{ transform: "scale(1.05) " }}
+            _hover={{
+              transform: "scale(1.05) ",
+              borderColor: "black",
+              color: "white",
+              bgColor: "black",
+            }}
             backgroundColor="white"
             color="black"
           >

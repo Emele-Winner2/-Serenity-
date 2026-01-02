@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Carousel,
+  Grid,
+  GridItem,
   Heading,
   HStack,
   Icon,
@@ -18,48 +20,59 @@ const items = Array.from({ length: 5 });
 
 export function Offers() {
   return (
-    <Box mb="100px" p={3} textAlign="left" bgColor="#fafaf8">
-      <Heading
-        mb={30}
-        fontFamily="Inter, sans-serif"
-        fontSize="md"
-        color="black"
-      >
-        Special Offer
-      </Heading>
-      <Heading
-        fontFamily="Inter, sans-serif"
-        fontWeight="normal"
-        fontSize="3xl"
-        lineHeight={1}
-        color="black"
-      >
-        Limited-Time Offers You Can&apos;t Miss!
-      </Heading>
-      <p className="text-gray-600">
-        {" "}
-        <br />
-        Enjoy unbeatable rates, complementary perks and extra rights on us. Your
-        perfect getaway just got even better!
-      </p>
-      <Button
-        mb={5}
-        mt={5}
-        borderRadius="20px"
-        backgroundColor="black"
-        _hover={{
-          transform: "scale(1.05) ",
-          borderColor: "black",
-          color: "black",
-          bgColor: "white",
-        }}
-        color="white"
-      >
-        See all Special Offers
-      </Button>
+    <Box
+      mb={{ base: "100px", xl: "200px" }}
+      p={{ base: "3", xl: "70px" }}
+      textAlign="left"
+      bgColor="#fafaf8"
+    >
+      <Box display={{ lg: "flex" }} justifyContent="space-between">
+        <Box>
+          <Heading
+            fontFamily="Inter, sans-serif"
+            fontSize="md"
+            color="gray.600"
+          >
+            Special Offer
+          </Heading>
+          <Heading
+            mt={{ base: "5", lg: "none" }}
+            fontFamily="Inter, sans-serif"
+            fontWeight="normal"
+            fontSize="3xl"
+            lineHeight={1.2}
+            color="black"
+          >
+            Limited-Time Offers You Can&apos;t Miss!
+          </Heading>
+        </Box>
+
+        <Box mt={{ base: "5", lg: "none" }}>
+          <p className="text-gray-600">
+            Enjoy unbeatable rates, complementary perks and extra rights on us.
+            Your perfect getaway just got even better!
+          </p>
+          <Button
+            mb={5}
+            mt={5}
+            borderRadius="20px"
+            backgroundColor="black"
+            _hover={{
+              transform: "scale(1.05) ",
+              borderColor: "black",
+              color: "black",
+              bgColor: "white",
+            }}
+            color="white"
+          >
+            See all Special Offers
+          </Button>
+        </Box>
+      </Box>
       <br />
 
       <Carousel.Root
+        display={{ lg: "none" }}
         orientation="vertical"
         slideCount={items.length}
         mx="auto"
@@ -113,6 +126,30 @@ export function Offers() {
           ))}
         </Carousel.IndicatorGroup>
       </Carousel.Root>
+      <Box display={{ base: "none", md: "none", lg: "block" }}>
+        <Grid
+          transition="transform 0.3s ease-in-out"
+          bg="white"
+          templateRows="repeat(2, 1fr)"
+          templateColumns="repeat(4, 1fr)"
+          borderRadius="14px"
+          gap={{ base: "2", md: "3" }}
+          border="none"
+          mt={10}
+          color="black"
+        >
+          {properties.map((property, index) => (
+            <GridItem
+              cursor="pointer"
+              transition="transform 0.3s ease-in-out"
+              _hover={{ transform: "scale(1.05)" }}
+              key={property.id}
+            >
+              <PropertyCard data={property} />
+            </GridItem>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 }
@@ -136,7 +173,7 @@ const PropertyCard = ({ data }: PropertyCardProps) => (
       />
       {data.favorite && (
         <Badge pos="absolute" top="2" insetStart="2" size="sm">
-          Guest favorite
+          10% discount
         </Badge>
       )}
     </Box>

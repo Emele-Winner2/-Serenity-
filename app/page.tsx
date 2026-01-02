@@ -21,7 +21,7 @@ export default function Home() {
             bgSize="cover"
             bgPos="right"
             bgRepeat="no-repeat"
-            height="610px"
+            height="600px"
             objectFit="contain"
           >
             <Nav_bar />
